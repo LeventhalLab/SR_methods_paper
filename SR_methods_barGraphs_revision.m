@@ -5,11 +5,11 @@
 %bar graph reaches
 figure;
 hold;
-subplot(1,3,1);
+%subplot(1,3,1);
 meanR = mean(reaches_d8_12); %must have reaches file in workspace
 semR = ((std(reaches_d8_12))/sqrt(length(reaches_d8_12)));
 meanRiD = cat(1,ratIDs,meanR,semR,pawPref) %pawPref = 0 Left, 1 Right, %must have pawPref and ratIDs file in workspace
-[d1,d2] = sort(meanRiD(2,:));
+[~,d2] = sort(meanRiD(2,:));
 meanRiDsor = meanRiD(:,d2)
 bar(meanRiDsor(2,:),'r');
 errorbar(meanRiDsor(2,:),meanRiDsor(3,:),'.');
@@ -27,9 +27,9 @@ figure;
 hold;
 meanOnes = mean(ones_d8_12); %must have ones data file in workspace
 semOnes = ((std(ones_d8_12))/sqrt(length(ones_d8_12)));
-meanOnesiD = cat(1,ratIDs,meanOnes,semOnes,pawPref);
-[d1,d2] = sort(meanOnesiD(2,:));
-meanOnesIdSor = meanOnesiD(:,d2);
+meanOnesiD = cat(1,ratIDs,meanOnes,semOnes,pawPref)
+[~,d2] = sort(meanOnesiD(2,:));
+meanOnesIdSor = meanOnesiD(:,d2)
 bar(meanOnesIdSor(2,:),'b');
 errorbar(meanOnesIdSor(2,:),meanOnesIdSor(3,:),'.');
 set(gca, 'XTick', 1:11);
@@ -45,9 +45,9 @@ figure;
 hold;
 meanAny = mean(onestwos_d8_12); %must have onestwos file in workspace
 semAny = ((std(onestwos_d8_12))/sqrt(length(onestwos_d8_12)));
-meanAnyId = cat(1,ratIDs,meanAny,semAny,pawPref);
-[d1,d2] = sort(meanAnyId(2,:));
-meanAnyIdSor = meanAnyId(:,d2);
+meanAnyId = cat(1,ratIDs,meanAny,semAny,pawPref)
+[~,d2] = sort(meanAnyId(2,:));
+meanAnyIdSor = meanAnyId(:,d2)
 bar(meanAnyIdSor(2,:),'g')
 errorbar(meanAnyIdSor(2,:),meanAnyIdSor(3,:),'.');
 set(gca, 'XTick', 1:11);
