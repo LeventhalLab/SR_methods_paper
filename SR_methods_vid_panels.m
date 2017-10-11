@@ -20,6 +20,9 @@ timeList = [0.65,1.0,1.05,1.15,1.30];
 
 ROI = [750,450,500,500
 	   1500,400,500,500];
+trigger_ROI = [1820,600,60,60];
+trigger_ROI(1:2) = trigger_ROI(1:2) - ROI(2,1:2) + 1;
+
 vidRoot = '/Volumes/RecordingsLeventhal3/SkilledReaching/';
 ratDir = fullfile(vidRoot, ratID,[ratID '-rawdata']);
 sessionDir = fullfile(ratDir, sessionName);
@@ -52,6 +55,9 @@ for iFrame = 1 : length(timeList)
                  'fontname','arial',...
                  'fontsize',10,...
                  'color','w');
+        else
+            hold on
+            rectangle('position',trigger_ROI,'edgecolor','y','linewidth',1);
         end
     end
     
